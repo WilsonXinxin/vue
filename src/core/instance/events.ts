@@ -10,6 +10,8 @@ import {
 import { updateListeners } from '../vdom/helpers/index'
 
 export function initEvents(vm: Component) {
+  // Object.create(null) 会创建一个没有原型链的对象，这意味着它只有自身的方法，一般是框架和库需要在该对象的原型上添加一些方法和属性，这样能够避免原型继承可能带来的问题。
+  // 同时由于该对象没有继承任何属性和方法，它比继承自 Object.prototype 的普通对象有更快的访问速度和更小的开销
   vm._events = Object.create(null)
   vm._hasHookEvent = false
   // init parent attached events

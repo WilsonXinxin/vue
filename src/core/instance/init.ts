@@ -18,6 +18,8 @@ export function initMixin(Vue: typeof Component) {
     const vm: Component = this
     // a uid
     vm._uid = uid++
+    console.log('vm', vm);
+
 
     let startTag, endTag
     /* istanbul ignore if */
@@ -56,7 +58,9 @@ export function initMixin(Vue: typeof Component) {
     }
     // expose real self
     vm._self = vm
+    // 初始化挂载生命周期对象
     initLifecycle(vm)
+    // 初始化时间相关属性 $on $emit $once
     initEvents(vm)
     initRender(vm)
     callHook(vm, 'beforeCreate', undefined, false /* setContext */)
